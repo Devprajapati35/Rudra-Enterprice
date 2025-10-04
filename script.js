@@ -1,7 +1,6 @@
 // Toggle mobile navigation menu
 const menuBtn = document.getElementById('menu-btn');
 const menu = document.getElementById('menu');
-
 menuBtn.addEventListener('click', () => {
   menu.classList.toggle('active');
 });
@@ -17,8 +16,9 @@ menuToggle.addEventListener('click', () => {
 
 // 🌟 Contact Form Validation
 const contactForm = document.getElementById('contactForm');
-const formMessage = document.getElementById('formMessage');
+const contactMessage = document.getElementById('formMessage');
 
+if (contactForm){
 contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -46,11 +46,11 @@ contactForm.addEventListener('submit', function(e) {
 
     contactForm.reset();
 });
-
+}
 //login 
 // 🌟 Toggle Menu for Mobile
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
+//const loginToggle = document.getElementById('menuToggle');
+//const navLinks = document.getElementById('navLinks');
 
 menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('show');
@@ -95,22 +95,84 @@ loginForm.addEventListener('submit', function (e) {
 
 
 // Cart logic
-let cart = [];
-const cartCount = document.getElementById("cart-count");
-const addToCartButtons = document.querySelectorAll(".add-to-cart");
+//let cart = [];
+//const cartCount = document.getElementById("cart-count");
+//const addToCartButtons = document.querySelectorAll(".add-to-cart");
 
-addToCartButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    const name = button.dataset.name;
-    const price = parseInt(button.dataset.price);
+//addToCartButtons.forEach(button => {
+  ////button.addEventListener("click", () => {
+    //const name = button.dataset.name;
+    ///const price = parseInt(button.dataset.price);
 
     // Add item to cart array
-    cart.push({ name, price });
+   //// cart.push({ name, price });
 
     // Update cart count
-    cartCount.textContent = cart.length;
+    //cartCount.textContent = cart.length;
 
     // Optional: Confirmation
-    alert(`${name} added to cart!`);
+    //alert(`${name} added to cart!`);
+  //});
+//});
+
+
+// ---- JavaScript ----
+let cartCount = 0;
+let cartItems = [];
+let cartTotal = 0;
+
+function addToCart(productName, price) {
+  cartCount++;
+  cartItems.push({ name: productName, price: price });
+  cartTotal += price;
+
+  document.getElementById("cart-count").innerText = cartCount;
+  renderCart();
+  showPopup(productName);
+}
+
+function renderCart() {
+  let cartList = document.getElementById("cart-items");
+  cartList.innerHTML = "";
+
+  cartItems.forEach((item, index) => {
+    let li = document.createElement("li");
+    li.innerHTML = `
+      ${item.name} - ₹${item.price}
+      <button class="remove-btn" onclick="removeFromCart(${index})">X</button>
+    `;
+    cartList.appendChild(li);
   });
-});
+
+  let totalEl = document.getElementById("cart-total");
+  if (totalEl) totalEl.innerText = cartTotal;
+}
+
+function removeFromCart(index) {
+  cartTotal -= cartItems[index].price;
+  cartItems.splice(index, 1);
+  cartCount--;
+
+  document.getElementById("cart-count").innerText = cartCount;
+  renderCart();
+}
+{
+  //document.getElementById("cart-sidebar").classList.toggle("active");
+}
+
+function toggleCart() {
+  let sidebar = document.getElementById("cart-sidebar");
+  if (sidebar) sidebar.classList.toggle("active");
+}
+
+// ---- Popup Function ----
+function showPopup(productName) {
+  let popup = document.getElementById("popup");
+  popup.innerText = `✅ ${productName} Cart में Add हो गया!`;
+  popup.style.display = "block";
+
+  setTimeout(() => {
+    popup.style.display = "none";
+  }, 3000);
+}
+

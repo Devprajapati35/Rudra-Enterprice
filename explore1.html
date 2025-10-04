@@ -22,7 +22,7 @@
       <a href="#">FAQs</a>
       </nav>
       <div>
-     <a href="#">Cart 🛒</a>
+     <div class="cart" onclick="toggleCart()">Cart🛒 <span id="cart-count">0</span></div>
      <a href="login.html">Login 🔑</a>
        <!--<div class="cart-container">
       <i class="fas fa-shopping-cart cart-icon"></i>
@@ -38,12 +38,14 @@
   <!-- ===== Mobile Variety ===== -->
   <section class="products">
     <div class="product">
-      <img src="imeges/Appl- iPhone-15.jpg" alt="iPhone" style="height:500px; object-fit: cover;border-radius: 8px; margin-bottom: 10px; cursor:all-scroll;">
+    <img src="imeges/Appl- iPhone-15.jpg" alt="iPhone" style="height:500px; object-fit: cover;border-radius: 8px; margin-bottom: 10px; cursor:all-scroll;">
     </div>
     <div class="product">
       <h3>Apple iPhone 15 </h3>
       <p>Apple iPhone 15 (128 GB) - Pink.DYNAMIC ISLAND COMES TO IPHONE 15, 48MP MAIN CAMERA WITH 2X TELEPHOTO</p>
       <div class="price">₹47,999</div>
+      <button>Add to Cart</button>
+      <button> Buy Now</button>
       <h2>About this item</h2>
       <p>DYNAMIC ISLAND COMES TO IPHONE 15 — Dynamic Island bubbles up alerts and Live Activities — so you don’t miss them while you’re doing something else. You can see who’s calling, track your next ride, check your flight status, and so much more.
 INNOVATIVE DESIGN — iPhone 15 features a durable color-infused glass and aluminum design. It’s splash, water, and dust resistant. The Ceramic Shield front is tougher than any smartphone glass. And the 6.1" Super Retina XDR display is up to 2x brighter in the sun compared to iPhone 14.
@@ -52,6 +54,19 @@ NEXT-GENERATION PORTRAITS — Capture portraits with dramatically more detail an
 POWERHOUSE A16 BIONIC CHIP — The superfast chip powers advanced features like computational photography, fluid Dynamic Island transitions, and Voice Isolation for phone calls. And A16 Bionic is incredibly efficient to help deliver great all-day battery life.</p>
     </div>
     </section>
+    <!-- Cart Sidebar -->
+  <div id="cart-sidebar">
+    <button class="close-btn" onclick="toggleCart()">Close ✖</button>
+    <h3>🛍 आपके Cart में Items:</h3>
+    <ul id="cart-items"></ul>
+    <p class="cart-total">Total: ₹<span id="cart-total">0</span></p>
+  </div>
+
+  <!-- Popup Message -->
+  <div id="popup">✅ Item Cart में Add हो गया!</div>
+
+  <!-- JS File Link -->
+
 
 <!-- ===== Footer ===== -->
   <footer>

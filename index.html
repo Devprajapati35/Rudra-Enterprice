@@ -22,7 +22,8 @@
       <a href="#">FAQs</a>
       </nav>
       <div>
-     <a href="#">Cart 🛒</a>
+        <div> <a href="#">Cart🛒 <span id="cart-count">0</span></a>
+      <!--<a href="#">Cart 🛒</a>--->
      <a href="login.html">Login 🔑</a>
        <!--<div class="cart-container">
       <i class="fas fa-shopping-cart cart-icon"></i>
@@ -40,32 +41,30 @@
   <!-- ===== Mobile Variety ===== -->
   <section class="products">
     <div class="product">
-      <img src="imeges/Appl- iPhone-15.jpg" alt="iPhone">
+      <a href="explore1.html"><img src="imeges/Appl- iPhone-15.jpg" alt="iPhone"></a>
       <h3>Apple iPhone 15 </h3>
       <p>Apple iPhone 15 (128 GB) - Pink.DYNAMIC ISLAND COMES TO IPHONE 15, 48MP MAIN CAMERA WITH 2X TELEPHOTO</p>
       <div class="price">₹47,999</div>
-      <a href="explore1.html"><button>Buy Now</button></a>
+      <!--<button class="add-to-cart" data-name="Apple iPhone 15" data-price="47,999">Add to Cart</button>
+      <a href="explore1.html"><button>Buy Now</button></a>-->
     </div>
     <div class="product">
-      <img src="imeges/samsung-s24ultra.jpg" alt="iPhone">
+      <a href="explore2.html"><img src="imeges/samsung-s24ultra.jpg" alt="iPhone"></a>
       <h3>Samsung Galaxy S24 Ultra 5G AI</h3>
       <p>Samsung Galaxy S24 Ultra 5G AI Smartphone with Galaxy AI (Titanium Violet, 12GB, 256GB Storage), Snapdragon 8 Gen 3, 200 MP Camera with ProVisual Engine and 5000mAh Battery</p>
       <div class="price">₹73,999</div>
-      <a href="explore2.html"><button>Buy Now</button></a>
     </div>
     <div class="product">
-      <img src="imeges/oneplus.webp" alt="iPhone">
+      <a href="explore3.html"><img src="imeges/oneplus.webp" alt="iPhone"></a>
       <h3>OnePlus 13R</h3>
       <p>OnePlus 13R | Smarter with OnePlus AI | Lifetime Display Warranty (16GB RAM, 512GB Storage Astral Trail)</p>
       <div class="price">₹42,999</div>
-      <a href="explore3.html"><button>Buy Now</button></a>
     </div>
     <div class="product">
-      <img src="imeges/iphone.jpg" alt="iPhone">
+      <a href="explore4.html"><img src="imeges/iphone.jpg" alt="iPhone"></a>
       <h3>iPhone 16 </h3>
       <p>iPhone 16 128 GB: 5G Mobile Phone with Camera Control, A18 Chip and a Big Boost in Battery Life. Works with AirPods; Ultramarine</p>
       <div class="price">₹66,990</div>
-      <a href="explore4.html"><button>Buy Now</button></a>
     </div>
     <div class="product">
       <img src="imeges/samsung.jpg" alt="Samsung">
@@ -127,11 +126,21 @@
       <a href="#"><button>Buy Now</button></a>
     </div></div>
     </section>
-  
-  
-  
+    <!-- Cart Sidebar -->
+  <div id="cart-sidebar">
+    <button class="close-btn" onclick="toggleCart()">Close ✖</button>
+    <h3>🛍 आपके Cart में Items:</h3>
+    <ul id="cart-items"></ul>
+    <div class="cart-total">Total: ₹<span id="cart-total">0</span></div>
+  </div>
+
+  <!-- Popup Message -->
+  <div id="popup">✅ Item Cart में Add हो गया!</div>
+
+  <!-- JS File Link -->
+
   <!-- ===== Footer ===== -->
-  <footer>
+   <footer>
     <div class="footer-container">
       <div class="footer-box">
         <h4>Policies</h4>
